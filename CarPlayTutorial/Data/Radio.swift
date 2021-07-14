@@ -12,6 +12,7 @@ struct Radio: Decodable {
     let subtitle: String
     let desc: String
     let imageUrl: String
+    let imageSquareUrl: String
     let audioUrl: String
     let linkUrl: String
     let wikipediaUrl: String
