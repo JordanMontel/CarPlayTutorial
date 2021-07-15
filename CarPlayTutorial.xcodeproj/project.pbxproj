@@ -18,6 +18,7 @@
 		9EAD1A23269F24D3009666D9 /* RadioListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD1A22269F24D3009666D9 /* RadioListCell.swift */; };
 		9EAD1A25269F24E2009666D9 /* RadioListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EAD1A24269F24E2009666D9 /* RadioListCell.xib */; };
 		9EAD1A27269F2510009666D9 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD1A26269F2510009666D9 /* Radio.swift */; };
+		9EAD1A2926A064E8009666D9 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD1A2826A064E8009666D9 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9EAD1A22269F24D3009666D9 /* RadioListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListCell.swift; sourceTree = "<group>"; };
 		9EAD1A24269F24E2009666D9 /* RadioListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadioListCell.xib; sourceTree = "<group>"; };
 		9EAD1A26269F2510009666D9 /* Radio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
+		9EAD1A2826A064E8009666D9 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				9EAD19FA269EDDA7009666D9 /* AppDelegate.swift */,
 				9EAD19FC269EDDA7009666D9 /* SceneDelegate.swift */,
 				9EAD1A0F269EDE24009666D9 /* CarPlaySceneDelegate.swift */,
+				9EAD1A2A26A07406009666D9 /* CarPlay */,
 				9EAD1A1C269F245B009666D9 /* Data */,
 				9EAD1A1B269F244E009666D9 /* ViewControllers */,
 				9EAD1A00269EDDA7009666D9 /* Main.storyboard */,
@@ -96,8 +99,16 @@
 			children = (
 				9EAD1A26269F2510009666D9 /* Radio.swift */,
 				9EAD1A1D269F2471009666D9 /* radios.json */,
+				9EAD1A2826A064E8009666D9 /* DataManager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		9EAD1A2A26A07406009666D9 /* CarPlay */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CarPlay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +185,7 @@
 			files = (
 				9EAD1A20269F24BC009666D9 /* RadioListViewController.swift in Sources */,
 				9EAD19FB269EDDA7009666D9 /* AppDelegate.swift in Sources */,
+				9EAD1A2926A064E8009666D9 /* DataManager.swift in Sources */,
 				9EAD1A10269EDE24009666D9 /* CarPlaySceneDelegate.swift in Sources */,
 				9EAD19FD269EDDA7009666D9 /* SceneDelegate.swift in Sources */,
 				9EAD1A23269F24D3009666D9 /* RadioListCell.swift in Sources */,
