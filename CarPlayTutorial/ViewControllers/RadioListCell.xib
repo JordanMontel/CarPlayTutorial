@@ -23,31 +23,45 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W63-az-Zyi">
-                        <rect key="frame" x="136" y="8" width="270" height="21"/>
+                        <rect key="frame" x="136" y="8" width="237" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuK-QI-TUG">
-                        <rect key="frame" x="136" y="37" width="270" height="20.5"/>
+                        <rect key="frame" x="136" y="37" width="237" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXK-rQ-foe">
+                        <rect key="frame" x="381" y="34.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="HUy-LS-BCe"/>
+                            <constraint firstAttribute="height" constant="25" id="au0-gs-wKm"/>
+                        </constraints>
+                        <state key="normal" image="favorite_border"/>
+                        <connections>
+                            <action selector="favoriteWithButton:" destination="XoS-tM-mf6" eventType="touchUpInside" id="Mn1-K1-dio"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="nru-aa-Pfj" firstAttribute="leading" secondItem="SfM-O3-Rs8" secondAttribute="leading" constant="8" id="5sd-wG-MmC"/>
-                    <constraint firstAttribute="trailing" secondItem="W63-az-Zyi" secondAttribute="trailing" constant="8" id="M4s-J5-khB"/>
+                    <constraint firstItem="pXK-rQ-foe" firstAttribute="centerY" secondItem="SfM-O3-Rs8" secondAttribute="centerY" id="Asz-bg-WGr"/>
+                    <constraint firstAttribute="trailing" secondItem="W63-az-Zyi" secondAttribute="trailing" constant="41" id="M4s-J5-khB"/>
                     <constraint firstItem="vuK-QI-TUG" firstAttribute="top" secondItem="W63-az-Zyi" secondAttribute="bottom" constant="8" id="WYH-rO-cQC"/>
                     <constraint firstItem="W63-az-Zyi" firstAttribute="top" secondItem="SfM-O3-Rs8" secondAttribute="top" constant="8" id="asg-wI-Spi"/>
                     <constraint firstItem="vuK-QI-TUG" firstAttribute="leading" secondItem="nru-aa-Pfj" secondAttribute="trailing" constant="8" id="bV9-Ik-JzQ"/>
-                    <constraint firstAttribute="trailing" secondItem="vuK-QI-TUG" secondAttribute="trailing" constant="8" id="dMr-0h-B4h"/>
+                    <constraint firstAttribute="trailing" secondItem="vuK-QI-TUG" secondAttribute="trailing" constant="41" id="dMr-0h-B4h"/>
                     <constraint firstItem="nru-aa-Pfj" firstAttribute="centerY" secondItem="SfM-O3-Rs8" secondAttribute="centerY" id="dOk-hX-JeS"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vuK-QI-TUG" secondAttribute="bottom" constant="8" id="nqq-4c-c5u"/>
                     <constraint firstItem="W63-az-Zyi" firstAttribute="leading" secondItem="nru-aa-Pfj" secondAttribute="trailing" constant="8" symbolic="YES" id="ost-BX-iMr"/>
+                    <constraint firstAttribute="trailing" secondItem="pXK-rQ-foe" secondAttribute="trailing" constant="8" id="t5e-Y3-zkA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteButton" destination="pXK-rQ-foe" id="GZB-3G-SQN"/>
                 <outlet property="radioImageView" destination="nru-aa-Pfj" id="A7I-9N-Kf5"/>
                 <outlet property="subtitleLabel" destination="vuK-QI-TUG" id="W5o-s4-rGr"/>
                 <outlet property="titleLabel" destination="W63-az-Zyi" id="w5X-Db-PhG"/>
@@ -55,4 +69,7 @@
             <point key="canvasLocation" x="-151" y="-1"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="favorite_border" width="20" height="20"/>
+    </resources>
 </document>

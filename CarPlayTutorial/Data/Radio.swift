@@ -8,6 +8,7 @@
 import Foundation
 
 struct Radio: Decodable {
+    let uid: String
     let title: String
     let subtitle: String
     let desc: String

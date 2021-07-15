@@ -30,10 +30,18 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
                 items.append(item)
             }
             let section = CPListSection(items: items)
-            let listTemplate = CPListTemplate(title: "Radios", sections: [section])
+            let radioListTemplate = CPListTemplate(title: "Radios", sections: [section])
+            radioListTemplate.tabImage = .add
+            
+            // Create a favorite list
+            let item = CPListItem(text: "Favorite 1", detailText: "Detail 1")
+            item.accessoryType = .disclosureIndicator
+            let section2 = CPListSection(items: [item])
+            let favoriteListTemplate = CPListTemplate(title: "Favorites", sections: [section2])
 
-            // Set root
-            self.interfaceController?.setRootTemplate(listTemplate, animated: true, completion: {_, _ in })
+            // Create a tab bar
+            let tabBar = CPTabBarTemplate.init(templates: [radioListTemplate, favoriteListTemplate])
+            self.interfaceController?.setRootTemplate(tabBar, animated: true, completion: {_, _ in })
             
         } catch { print(error) }
     }

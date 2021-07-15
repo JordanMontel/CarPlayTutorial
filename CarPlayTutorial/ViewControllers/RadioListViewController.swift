@@ -21,6 +21,12 @@ class RadioListViewController: UIViewController {
         
         tableView.register(UINib(nibName: "RadioListCell", bundle: Bundle.main), forCellReuseIdentifier: "RadioListCell")
         
+        if UserDefaults.standard.array(forKey: "FavoriteRadios") == nil {
+            let favoriteRadios : [String] = []
+            UserDefaults.standard.setValue(favoriteRadios, forKey: "FavoriteRadios")
+            UserDefaults.standard.synchronize()
+        }
+        
         do {
             let data = try Data(contentsOf: Bundle.main.url(forResource: "radios", withExtension: "json")!)
             radios = try JSONDecoder().decode([Radio].self, from: data)
