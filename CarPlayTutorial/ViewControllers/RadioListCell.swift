@@ -52,6 +52,8 @@ class RadioListCell: UITableViewCell {
             button.setImage(UIImage(named: "favorite"), for: .normal)
         }
         DataManager.shared.updateFavoriteRadios(radio: radio)
+        
+        NotificationCenter.default.post(name: .updateFavoriteRadiosNotification, object: nil)
     }
     
     

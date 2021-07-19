@@ -21,7 +21,7 @@ class DataManager {
             radios = try JSONDecoder().decode([Radio].self, from: data)
             return completionHandler(radios)
         } catch {
-            print(error)
+            print("getRadios() error", error)
             return completionHandler(nil)
         }
     }
@@ -32,6 +32,5 @@ class DataManager {
         } else {
             favoriteRadios.append(radio)
         }
-        print(favoriteRadios.count)
     }
 }
