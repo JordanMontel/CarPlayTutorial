@@ -1,0 +1,46 @@
+[
+    {
+        "uid": "0",
+        "title": "La Première",
+        "subtitle": "Programmation basée sur des émissions d'informations, musicales et culturelles.",
+        "desc": "La Première (stylisé « La 1ère ») est la première station de radio publique de Suisse romande, appartenant à la Radio télévision suisse.Depuis 1984, sa programmation est généraliste, basée sur des émissions d'informations, musicales et culturelles. Depuis janvier 2011, c'estAmbroise Jolidon qui est en dirige les programmes.",
+        "imageUrl": "RTSLaPremiere.png",
+        "imageSquareUrl": "RTSLaPremiere_square.png",
+        "audioUrl": "http://stream.srg-ssr.ch/m/la-1ere/mp3_128",
+        "linkUrl": "http://www.rts.ch/la-1ere/",
+        "wikipediaUrl": "http://fr.wikipedia.org/wiki/La_Premi%C3%A8re_%28radio_suisse%29"
+     },
+     {
+        "uid": "1",
+        "title": "Espace 2",
+        "subtitle": "Programmation basée sur des émissions de musique classique et de nouveautés discographiques.",
+        "desc": "Espace 2 est la deuxième station de radio suisse de la Radio télévision suisse, une entreprise publique. Cette chaîne culturelle a son siège       Lausanne.",
+        "imageUrl": "RTSEspace2.png",
+        "imageSquareUrl": "RTSEspace2_square.png",
+        "audioUrl": "http://stream.srg-ssr.ch/m/espace-2/mp3_128",
+        "linkUrl": "http://www.rts.ch/espace-2/",
+        "wikipediaUrl": "http://fr.wikipedia.org/wiki/Espace_2"
+     },
+     {
+        "uid": "2",
+        "title": "Couleur 3",
+        "subtitle": "Programmation basée sur les musiques originales et chroniques humoristiques.",
+        "desc": "Couleur 3 est la troisième station de radio publique de Suisse romande. Elle est de format généraliste, mais aussi spécialisée dans la musique pop rock, bien qu'elle passe aussi du hip-hop, du reggae et de la techno. Elle est basée à Lausanne. Faisant partie du service public, ses émissions sont totalement dépourvues de publicité. La radio est diffusée en FM, en DAB+, sur le câble, IPTV, le satellite et également en direct sur Internet. Depuis 2005, des podcasts des différentes chroniques et des interviews sont téléchargeables sur le site ou via un logiciel tiers.",
+        "imageUrl": "RTSCouleur3.png",
+        "imageSquareUrl": "RTSCouleur3_square.png",
+        "audioUrl": "http://stream.srg-ssr.ch/m/couleur3/mp3_128",
+        "linkUrl": "http://www.rts.ch/couleur3/",
+        "wikipediaUrl": "http://fr.wikipedia.org/wiki/Couleur_3"
+     },
+     {
+        "uid": "3",
+        "title": "Option Musique",
+        "subtitle": "Programmation basée au monde de la chanson et des artistes.",
+        "desc": "Option Musique est la quatrième station de radio de la Radio télévision suisse. Elle propose depuis 1994 un programme musical composé enmajorité de variété francophone populaire et contribue activement à la promotion des auteurs compositeurs et interprètes suisses.",
+        "imageUrl": "RTSOptionMusique.png",
+        "imageSquareUrl": "RTSOptionMusique_square.png",
+        "audioUrl": "http://stream.srg-ssr.ch/m/option-musique/mp3_128",
+        "linkUrl": "http://www.rts.ch/option-musique/",
+        "wikipediaUrl": "http://fr.wikipedia.org/wiki/Option_musique"
+     }
+ ]
