@@ -75,9 +75,9 @@
 				9EAD19FA269EDDA7009666D9 /* AppDelegate.swift */,
 				9EAD19FC269EDDA7009666D9 /* SceneDelegate.swift */,
 				9EAD1A0F269EDE24009666D9 /* CarPlaySceneDelegate.swift */,
-				9EAD1A2D26A5AF79009666D9 /* Utils */,
 				9EAD1A1C269F245B009666D9 /* Data */,
 				9EAD1A1B269F244E009666D9 /* ViewControllers */,
+				9EAD1A2D26A5AF79009666D9 /* Utils */,
 				9EAD1A00269EDDA7009666D9 /* Main.storyboard */,
 				9EAD1A03269EDDA8009666D9 /* Assets.xcassets */,
 				9EAD1A05269EDDA8009666D9 /* LaunchScreen.storyboard */,
@@ -99,8 +99,8 @@
 		9EAD1A1C269F245B009666D9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9EAD1A26269F2510009666D9 /* Radio.swift */,
 				9EAD1A1D269F2471009666D9 /* radios.json */,
+				9EAD1A26269F2510009666D9 /* Radio.swift */,
 				9EAD1A2826A064E8009666D9 /* DataManager.swift */,
 			);
 			path = Data;

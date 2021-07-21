@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MediaPlayer
+import AVKit
 
 class RadioListViewController: UIViewController {
     
@@ -57,5 +59,7 @@ extension RadioListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension RadioListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("radio", radios[indexPath.row])
+    }
 }

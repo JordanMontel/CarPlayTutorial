@@ -16,31 +16,32 @@ class CarPlaySceneDelegate: UIResponder  {
     let favoriteRadiosListTemplate: CPListTemplate = CPListTemplate(title: "Favorites", sections: [])
 
     // MARK: - Custom Methods
-    func updateRadiosList() -> CPListSection {
+    func updateRadiosList(onlyWithFavorites: Bool) -> CPListSection {
         var radioItems = [CPListItem]()
-        for radio in radios {
+        for radio in (onlyWithFavorites ? DataManager.shared.favoriteRadios : radios) {
             let item = CPListItem(text: radio.title, detailText: radio.subtitle)
             item.accessoryType = .disclosureIndicator
             item.setImage(UIImage(named: radio.imageSquareUrl))
+            item.handler = { [weak self] item, completion in
+                guard let strongSelf = self else { return }
+                strongSelf.favoriteAlert(radio: radio, completion: completion)
+            }
             radioItems.append(item)
         }
         return CPListSection(items: radioItems)
     }
     
-    func updateFavoriteRadiosList() -> CPListSection {
-        var favoriteRadioItems = [CPListItem]()
-        for radio in DataManager.shared.favoriteRadios {
-            let item = CPListItem(text: radio.title, detailText: radio.subtitle)
-            item.accessoryType = .disclosureIndicator
-            item.setImage(UIImage(named: radio.imageSquareUrl))
-            item.handler = { item, completion in
-                DataManager.shared.updateFavoriteRadios(radio: radio)
-                NotificationCenter.default.post(name: .updateFavoriteRadiosNotification, object: nil)
-                completion()
-            }
-            favoriteRadioItems.append(item)
+    func favoriteAlert(radio: Radio, completion: @escaping () -> Void) {
+        let okAlertAction: CPAlertAction = CPAlertAction(title: "Ok", style: .default) { _ in
+            DataManager.shared.updateFavoriteRadios(radio: radio)
+            NotificationCenter.default.post(name: .updateFavoriteRadiosNotification, object: nil)
+            self.interfaceController?.dismissTemplate(animated: true, completion: { _, _ in })
         }
-        return CPListSection(items: favoriteRadioItems)
+        let titleAlert = DataManager.shared.favoriteRadios.contains(where: {$0.uid == radio.uid}) ? "Remove from favorite" : "Add to favorite"
+        let alertTemplate: CPAlertTemplate = CPAlertTemplate(titleVariants: [titleAlert], actions: [okAlertAction])
+        self.interfaceController?.presentTemplate(alertTemplate, animated: true, completion: { _, _ in
+            completion()
+        })
     }
     
 }
@@ -55,7 +56,7 @@ extension CarPlaySceneDelegate: CPTemplateApplicationSceneDelegate {
         // Notifications
         NotificationCenter.default.addObserver(forName: .updateFavoriteRadiosNotification, object: nil, queue: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
-            strongSelf.favoriteRadiosListTemplate.updateSections([strongSelf.updateFavoriteRadiosList()])
+            strongSelf.favoriteRadiosListTemplate.updateSections([strongSelf.updateRadiosList(onlyWithFavorites: false)])
         }
         
         // First download
@@ -63,11 +64,11 @@ extension CarPlaySceneDelegate: CPTemplateApplicationSceneDelegate {
             self.radios = currentRadios ?? []
             
             // Create a radio list
-            radioListTemplate.updateSections([updateRadiosList()])
+            radioListTemplate.updateSections([updateRadiosList(onlyWithFavorites: false)])
             radioListTemplate.tabImage = UIImage(named: "radio")
             
             // Create a favorite radios list
-            favoriteRadiosListTemplate.updateSections([updateFavoriteRadiosList()])
+            favoriteRadiosListTemplate.updateSections([updateRadiosList(onlyWithFavorites: true)])
             favoriteRadiosListTemplate.tabImage = UIImage(named: "half_favorite")
 
             // Create a tab bar
@@ -97,9 +98,8 @@ extension CarPlaySceneDelegate: CPInterfaceControllerDelegate {
         print("templateWillAppear", aTemplate)
         
         if aTemplate == favoriteRadiosListTemplate {
-            favoriteRadiosListTemplate.updateSections([updateFavoriteRadiosList()])
+            favoriteRadiosListTemplate.updateSections([updateRadiosList(onlyWithFavorites: true)])
         }
-        
     }
 
     func templateDidAppear(_ aTemplate: CPTemplate, animated: Bool) {
