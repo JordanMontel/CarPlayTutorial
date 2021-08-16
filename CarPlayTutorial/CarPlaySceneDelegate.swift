@@ -22,10 +22,33 @@ class CarPlaySceneDelegate: UIResponder  {
             let item = CPListItem(text: radio.title, detailText: radio.subtitle)
             item.accessoryType = .disclosureIndicator
             item.setImage(UIImage(named: radio.imageSquareUrl))
-            item.handler = { [weak self] item, completion in
-                guard let strongSelf = self else { return }
-                strongSelf.favoriteAlert(radio: radio, completion: completion)
+            
+            if onlyWithFavorites {
+                item.handler = { [weak self] item, completion in
+                    guard let strongSelf = self else { return }
+                    strongSelf.favoriteAlert(radio: radio, completion: completion)
+                }
+            } else {
+                item.handler = { item, completion in
+                    guard let url = URL(string: radio.audioUrl)  else { return }
+                    
+                    // Play audio
+                    let player = AudioManager.shared
+                    player.pauseAudio()
+                    player.playAudio(audioUrl: url)
+                    
+                    // Create now playing template
+                    let nowPlayingTemplate = CPNowPlayingTemplate.shared
+                    let rateButton = CPNowPlayingPlaybackRateButton() { button in
+            
+                    }
+//                    nowPlayingTemplate.updateNowPlayingButtons([rateButton])
+                    self.interfaceController?.pushTemplate(nowPlayingTemplate, animated: true, completion:{ _, _ in
+                        completion()
+                    })
+                }
             }
+            
             radioItems.append(item)
         }
         return CPListSection(items: radioItems)
@@ -87,7 +110,7 @@ extension CarPlaySceneDelegate: CPTemplateApplicationSceneDelegate {
 // MARK: - CPTabBarTemplateDelegate
 extension CarPlaySceneDelegate: CPTabBarTemplateDelegate {
     func tabBarTemplate(_ tabBarTemplate: CPTabBarTemplate, didSelect selectedTemplate: CPTemplate) {
-
+        print("CPTabBarTemplateDelegate selectedTemplate", selectedTemplate)
     }
 }
 

@@ -61,5 +61,19 @@ extension RadioListViewController: UITableViewDataSource {
 extension RadioListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("radio", radios[indexPath.row])
+        
+        let currentRadio = radios[indexPath.row]
+        guard let url = URL(string: currentRadio.audioUrl) else { return }
+        print("url :", url)
+        
+        let player = AudioManager.shared
+        player.pauseAudio()
+//        player.playAudio(audioUrl: url)
+        
+        let controller = AVPlayerViewController()
+        controller.player = player.audioPlayer
+        present(controller, animated: true) {
+            player.playAudio(audioUrl: url)
+        }
     }
 }
